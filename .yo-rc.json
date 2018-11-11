@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "applicationType": "microservice",
+    "gitCompany": "",
+    "baseName": "MasterLoanMachineLearning",
+    "packageName": "io.github.jhipster.masterloanmachinelearning",
+    "packageFolder": "io/github/jhipster/masterloanmachinelearning",
+    "serverPort": 8082,
+    "serviceDiscoveryType": "eureka",
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": "elasticsearch",
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling"
+    ],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.6.1",
+    "jwtSecretKey": "ZmVkZjNkNzk0Yjc1MmI1MTI5ODdmN2EzZDc1MTM5MmEwYmJjOTVhMjNmZDY3ZTdkMjYyYzc2NjY3Y2EyZWYxMGRhZjdlYmUxMjhhNGMzMjBlOGJhYWViOGRjZDRiYTMzNjFjYjIyODYyNzk5MDM1YTgzMDEwMjQ1NTU4MWJkMzg=",
+    "skipClient": true,
+    "skipUserManagement": true
+  },
+  "git-provider": "GitHub",
+  "git-company": "JZulRes",
+  "repository-name": "MasterLoanMachineLearning"
+}
