@@ -1,42 +1,18 @@
 package io.github.jhipster.masterloanmachinelearning.web.rest;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
+import java.io.*;
+import java.net.MalformedURLException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+public class HttpClientTest {
+    public static void main(String[] args) throws IOException {
 
-import javax.ws.rs.PathParam;
+        // NOTE: you must manually construct wml_credentials hash map below
+        // using information retrieved from your IBM Cloud Watson Machine Learning Service instance.
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-/**
- * MachineLearningResource controller
- */
-@RestController
-@RequestMapping("/api/machine-learning")
-public class MachineLearningResource {
-    public static String wml_service_credentials_url = "https://us-south.ml.cloud.ibm.com";
-    public static final String wml_service_credentials_username = "d97c3565-ef9e-4b9e-abda-7a45ef5fc128";
-    public static final String wml_service_credentials_password = "166ba193-1001-48bd-a9a9-42723c803036";
-    private final Logger log = LoggerFactory.getLogger(MachineLearningResource.class);
-
-    /**
-    * GET getScoreAndRiskForLoan
-     * @throws IOException 
-    */
-    @GetMapping("/get-score-and-risk-for-loan/{genero}/{paisNacimiento}/{estratoSocioeconomico}/{numeroDePrestamosPagados}/{numeroDeCuotasPagadasTotal}/{montoPrestamo}")
-    public String getScoreAndRiskForLoan(@PathParam("genero") String genero,@PathParam("paisNacimiento") String paisNacimiento,@PathParam("estratoSocioeconomico") String estratoSocioeconomico,@PathParam("numeroDePrestamosPagados") String numeroDePrestamosPagados,@PathParam("numeroDeCuotasPagadasTotal") String numeroDeCuotasPagadasTotal,@PathParam("montoPrestamo") String montoPrestamo) throws IOException {
-        String response = "";
         Map<String, String> wml_credentials = new HashMap<String, String>()
         {{
             put("url", wml_service_credentials_url);
@@ -83,8 +59,7 @@ public class MachineLearningResource {
             OutputStreamWriter writer = new OutputStreamWriter(scoringConnection.getOutputStream(), "UTF-8");
 
             // NOTE: manually define and pass the array(s) of values to be scored in the next line
-            String payload = "{\"fields\": [\"GENERO\", \"PAIS_NACIMIENTO\", \"ESTRATO_SOCIECONOMICO\", \"NUMERO_DE_PRESTAMOS_PAGADOS\", \"NUMERO_DE_CUOTAS_PAGADAS_TOTAL\", \"MONTO_DE_PRESTAMO\"], "
-            		+ "\"values\": [\""+genero+"\",\""+paisNacimiento+"\",\""+estratoSocioeconomico+"\",\""+numeroDePrestamosPagados+"\",\""+numeroDeCuotasPagadasTotal+"\",\""+montoPrestamo+"\"]}";
+            String payload = "{\"fields\": [\"GENERO\", \"PAIS_NACIMIENTO\", \"ESTRATO_SOCIECONOMICO\", \"NUMERO_DE_PRESTAMOS_PAGADOS\", \"NUMERO_DE_CUOTAS_PAGADAS_TOTAL\", \"MONTO_DE_PRESTAMO\"], \"values\": [array_of_values_to_be_scored, another_array_of_values_to_be_scored]}";
             writer.write(payload);
             writer.close();
 
@@ -113,7 +88,5 @@ public class MachineLearningResource {
                 scoringBuffer.close();
             }
         }
-        return response;
     }
-
 }
