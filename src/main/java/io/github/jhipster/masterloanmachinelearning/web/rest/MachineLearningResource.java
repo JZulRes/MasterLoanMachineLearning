@@ -11,11 +11,11 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ws.rs.PathParam;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +35,7 @@ public class MachineLearningResource {
      * @throws IOException 
     */
     @GetMapping("/get-score-and-risk-for-loan/{genero}/{paisNacimiento}/{estratoSocioeconomico}/{numeroDePrestamosPagados}/{numeroDeCuotasPagadasTotal}/{montoPrestamo}")
-    public String getScoreAndRiskForLoan(@PathParam("genero") String genero,@PathParam("paisNacimiento") String paisNacimiento,@PathParam("estratoSocioeconomico") String estratoSocioeconomico,@PathParam("numeroDePrestamosPagados") String numeroDePrestamosPagados,@PathParam("numeroDeCuotasPagadasTotal") String numeroDeCuotasPagadasTotal,@PathParam("montoPrestamo") String montoPrestamo) throws IOException {
+    public String getScoreAndRiskForLoan(@PathVariable("genero") String genero,@PathVariable("paisNacimiento") String paisNacimiento,@PathVariable("estratoSocioeconomico") String estratoSocioeconomico,@PathVariable("numeroDePrestamosPagados") String numeroDePrestamosPagados,@PathVariable("numeroDeCuotasPagadasTotal") String numeroDeCuotasPagadasTotal,@PathVariable("montoPrestamo") String montoPrestamo) throws IOException {
         String response = "";
         Map<String, String> wml_credentials = new HashMap<String, String>()
         {{
