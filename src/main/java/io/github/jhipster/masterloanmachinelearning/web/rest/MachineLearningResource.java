@@ -94,7 +94,7 @@ public class MachineLearningResource {
             while ((lineScoring = scoringBuffer.readLine()) != null) {
                 jsonStringScoring.append(lineScoring);
             }
-            System.out.println(jsonStringScoring);
+            response = jsonStringScoring.toString();
         } catch (IOException e) {
             System.out.println("The URL is not valid.");
             System.out.println(e.getMessage());
