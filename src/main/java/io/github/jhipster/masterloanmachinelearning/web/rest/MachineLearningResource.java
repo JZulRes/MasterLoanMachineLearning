@@ -84,7 +84,7 @@ public class MachineLearningResource {
 
             // NOTE: manually define and pass the array(s) of values to be scored in the next line
             String payload = "{\"fields\": [\"GENERO\", \"PAIS_NACIMIENTO\", \"ESTRATO_SOCIECONOMICO\", \"NUMERO_DE_PRESTAMOS_PAGADOS\", \"NUMERO_DE_CUOTAS_PAGADAS_TOTAL\", \"MONTO_DE_PRESTAMO\"], "
-            		+ "\"values\": [\""+genero+"\",\""+paisNacimiento+"\",\""+estratoSocioeconomico+"\",\""+numeroDePrestamosPagados+"\",\""+numeroDeCuotasPagadasTotal+"\",\""+montoPrestamo+"\"]}";
+            		+ "\"values\": [\""+genero+"\",\""+paisNacimiento+"\","+estratoSocioeconomico+","+numeroDePrestamosPagados+","+numeroDeCuotasPagadasTotal+","+montoPrestamo+"]}";
             writer.write(payload);
             writer.close();
 
